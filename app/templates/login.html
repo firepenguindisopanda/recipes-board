@@ -1,0 +1,36 @@
+{% extends 'main/main_template.html' %}
+
+{% block title %}Recipe Board{% endblock %}
+
+{% block page %}Login{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <form class="col s12 m8 offset-m2" method="POST" action="/login">
+        {{ form.csrf_token }}
+
+        <div class="input-field col s12 m8 offset-m2">
+            {{ form.username(size=20, class="validate") }}
+            {{ form.username.label }}
+        </div>
+
+        <div class="input-field col s12 m8 offset-m2">
+            {{ form.password(size=20, class="validate") }}
+            {{ form.password.label }}
+        </div>
+
+        <div class="input-field col s12 m8 offset-m2">
+            {{form.submit}}
+        </div>
+
+        <div class="input-field col s12 m8 offset-m2" style="color:black">
+            <span>Don't have an account?</span>
+            <a href="/signup">Sign up.</a>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

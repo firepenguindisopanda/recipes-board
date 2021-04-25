@@ -1,0 +1,48 @@
+{% extends 'main/main_template.html' %}
+
+{% block title %}Recipe Board{% endblock %}
+
+{% block style %}
+<style>
+    #cards{
+        height:200px;
+    }
+    #addToFav{
+        margin-top: 25px;
+    }
+</style>
+{% endblock %}
+
+{% block page %}Your Recipes{% endblock %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+
+<h3>Here are your favourite recipes</h3>
+
+{% for x in data %}
+
+<div class="card blue-grey darken-1" id="cards">
+    <div class="card-content">
+        <span class="card-title activator white-text text-darken-4">{{x.name}}<i
+                class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Ingredients<i class="material-icons right">close</i></span>
+        <p>{{x.ingredients_list}}</p>
+    </div>
+    <div class="card-action" id="addToFav">
+        <a href="/remove/{{x.id}}">Remove</a>
+      </div>
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<h1>Please Log in to use this feature</h1>
+
+{% endif %}
+
+{% endblock %}
