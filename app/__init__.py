@@ -12,7 +12,7 @@ def load_user(user_id):
 def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///.Database.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-    app.config['SECRET_KEY'] = "GyroIsKing"
+    app.config['SECRET_KEY'] = "SECRET"
     login_manager.init_app(app)
     db.init_app(app)
     return app
